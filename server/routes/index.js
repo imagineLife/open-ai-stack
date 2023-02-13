@@ -1,4 +1,4 @@
-import rootRouterFn from './root.js';
+import rootRouterFn from './root/index.js';
 
 export default function registerRoutes(app) {
   
