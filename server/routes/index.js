@@ -1,6 +1,9 @@
-import rootRouterFn from './root/index.js';
+import openApiHandlerRouter from './open-api/index.js';
 
 export default function registerRoutes(app) {
-  
-  app.use('/open-api', rootRouterFn)
+  const routes = [
+    {path: "/open-api", handler: openApiHandlerRouter}
+  ]
+
+  routes.forEach(({path, handler}) => app.use(path, handler))
 }
