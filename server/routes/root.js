@@ -1,13 +1,13 @@
 import express from 'express';
 const rootRouter = express.Router();
 
-rootRouter.get('/', (req, res) => {
-  console.log('b');
-  return res.send('this works!?');
-});
-rootRouter.post('/', (req, res) => {
-  console.log('c');
-  return res.send('this works!?');
-});
+function getHandler(req, res) {
+  return res.send('get works!');
+}
+
+function postHandler(req, res) {
+  return res.send('post works!?');
+}
+rootRouter.route('/').get(getHandler).post(postHandler);
 
 export default rootRouter;
