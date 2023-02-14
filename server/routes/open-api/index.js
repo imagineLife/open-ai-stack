@@ -1,8 +1,19 @@
 import express from 'express';
-import getHandler from './get.js'
-import postHandler from './post.js';
-const rootRouter = express.Router();
+import chatHandler from './chat/index.js';
+import imgHandler from './img/index.js';
+const openApiRouter = express.Router();
 
-rootRouter.route('/').get(getHandler).post(postHandler);
+const openApiRoutes = [
+  {
+    path: '/chat',
+    handler: chatHandler,
+  },
+  {
+    path: '/img',
+    handler: imgHandler,
+  },
+];
 
-export default rootRouter;
+openApiRoutes.forEach(({ path, handler }) => openApiRouter.use(path, handler));
+
+export default openApiRouter;
