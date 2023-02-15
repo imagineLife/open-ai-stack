@@ -11,5 +11,5 @@ export default function setupOpenAi() {
   });
 
   const openai = new OpenAIApi(cfg);
-  state.openai = openai;
+  state.openAi.library = openai;
 }
